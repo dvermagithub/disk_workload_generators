@@ -1,0 +1,11 @@
+Login to Windows as Administrator
+Create a folder called c:\Zerto
+Copy the file called disk_workload_service.ps1 to this C:\Zerto folder OR copy and paste the file contents to a file named disk_workload_service.ps1
+Open Windows PowerShell and execute the following commands
+  $script = "C:\Zerto\disk_workload_service.ps1"
+  $action = New-ScheduledTaskAction -Execute "powershell.exe" -Argument "-NoProfile -ExecutionPolicy Bypass -WindowStyle Hidden -File `"$script`""
+  $trigger = New-ScheduledTaskTrigger -AtStartup -RandomDelay (New-TimeSpan -Minutes 1)
+  Register-ScheduledTask -TaskName "ZertoDiskWorkload" -Action $action -Trigger $trigger -RunLevel Highest -User "SYSTEM" -Force
+Open Task Scheduler
+Under Task Scheduler Library Look for a new Service called: ZertoDiskWorkload
+Click on it and select "Run"
