@@ -9,3 +9,4 @@ Open Windows PowerShell and execute the following commands
 Open Task Scheduler
 Under Task Scheduler Library Look for a new Service called: ZertoDiskWorkload
 Click on it and select "Run"
+Under C:\Zerto you will see disk_workload.dat, disk_workload.log and disk_worload.pid files generated
