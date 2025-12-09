@@ -1,0 +1,11 @@
+sudo mkdir /opt/zerto
+sudo nano /opt/zerto/disk_workload.sh
+Copy and paste the contents of the disk_workload.sh file from here (or copy the file to the directory), save file (ctrl-x), Y for yes to save modified buffery, and Enter for filename selection
+sudo chmod +x /opt/zerto/disk_workload.sh
+sudo crontab -e (choose nano)
+Add the following line to crontab (without the quotes): "@reboot /opt/zerto/disk_workload.sh"
+Save file (ctrl-x), Y for yes to save modified buffery, and Enter for filename selection
+Reboot host OR sudo /opt/zerto/disk_workload.sh
+
+In the /opt/zerto directory, you will see disk_workload.dat, disk_workload.log and disk_worload.pid files generated
+Running top should show the process running
